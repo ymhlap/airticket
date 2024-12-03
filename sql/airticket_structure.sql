@@ -5,15 +5,6 @@ CREATE TABLE SalesAgents (
                              ContactInfo VARCHAR(100)
 );
 
--- 创建航班基本信息表
-CREATE TABLE FlightInfo (
-                            FlightID INT AUTO_INCREMENT PRIMARY KEY,
-                            PlaneName VARCHAR(100) NOT NULL,
-                            CabinClass VARCHAR(50) NOT NULL,
-                            TotalSeats INT,
-                            AvailableSeats INT
-);
-
 -- 创建预售状态表
 CREATE TABLE PreSaleStatus (
                                StatusID INT AUTO_INCREMENT PRIMARY KEY,
@@ -71,6 +62,15 @@ CREATE TABLE Bookings (
                           BookingStatus VARCHAR(50),
                           FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
                           FOREIGN KEY (FlightID) REFERENCES FlightInfo(FlightID)
+);
+
+-- 创建航班基本信息表
+CREATE TABLE FlightInfo (
+                            FlightID INT AUTO_INCREMENT PRIMARY KEY,
+                            PlaneName VARCHAR(100) NOT NULL,
+                            CabinClass VARCHAR(50) NOT NULL,
+                            TotalSeats INT,
+                            AvailableSeats INT
 );
 
 -- 创建航班行程表
