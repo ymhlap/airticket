@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  #============= 数据源配置 ===============
+  datasource:
+    url: jdbc:mysql://localhost:3306/airticket?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: ymh040116
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #================ 配置Jackson =================
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+  #================ 配置Swagger2 =================
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+#============== 配置MyBatisPlus ==============
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#============== 配置日志 ==============
+logging:
+  level:
+    root: info
+    com.igeek.health.controller: debug
+  file:
+    name: ../log/health_backend.log
+  charset:
+    file: UTF-8
