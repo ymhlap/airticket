@@ -1,55 +1,39 @@
 package com.ymh.airticket.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-/**
- * 
- * @TableName flightschedule
- */
-@TableName(value ="flightschedule")
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 @Data
-public class Flightschedule implements Serializable {
-    /**
-     * 
-     */
-    @TableId(type = IdType.AUTO)
-    private Integer scheduleid;
+@TableName("flightschedule")
+public class Flightschedule {
+    @TableId(value = "ScheduleID", type = IdType.AUTO)
+    private Integer scheduleId;
 
-    /**
-     * 
-     */
-    private Integer flightid;
+    @TableField("FlightID")
+    private Integer flightId;
 
-    /**
-     * 
-     */
-    private String departureairport;
+    @TableField("DepartureAirport")
+    private String departureAirport;
 
-    /**
-     * 
-     */
-    private String arrivalairport;
+    @TableField("ArrivalAirport")
+    private String arrivalAirport;
 
-    /**
-     * 
-     */
-    private Date departuredatetime;
+    @TableField("DepartureDateTime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime departureDateTime;
 
-    /**
-     * 
-     */
-    private Date arrivaldatetime;
+    @TableField("ArrivalDateTime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime arrivalDateTime;
 
-    /**
-     * 
-     */
-    private Date flightduration;
-
-
+    @TableField("FlightDuration")
+    @JsonFormat(pattern = "HH:mm:ss")
+    private LocalTime flightDuration;
 }
