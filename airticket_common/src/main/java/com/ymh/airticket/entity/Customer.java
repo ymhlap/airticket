@@ -18,30 +18,22 @@ import java.io.Serializable;
  * @since 2024/12/4
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @TableName("customers")
-public class Customer  implements Serializable {
+public class Customer {
 
-    //客户ID
-    @ApiModelProperty("主键")
-    @TableId(type = IdType.AUTO)
+    @TableId(value = "customerId", type = IdType.AUTO)
     private Integer customerId;
 
-    //客户姓名
-    @TableField("Name")
+    @TableField("name")
     private String name;
 
-    //联系方式
-    @TableField("ContactInfo")
-    private String contactInfo;
+    @TableField("IDNumber")
+    private String IDNumber;
 
-    //证件号码
-    @TableField("IdNumber")
-    private Integer idNumber;
+    @TableField("phoneNumber")
+    private String phoneNumber;
 
-    //支付状态
-    @TableField("PaymentStatus")
+    @TableField("paymentStatus")
     private String paymentStatus;
 
 }
